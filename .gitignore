@@ -1,0 +1,19 @@
+# Ignore compiled files
+*.out
+*.o
+*.exe
+
+# CMake or build folders
+/build/
+/bin/
+/obj/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Visual Studio Code
+.vscode/
+
+# Backup files
+*~
