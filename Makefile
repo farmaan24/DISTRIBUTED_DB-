@@ -32,11 +32,17 @@ SRC = src/kvstore.cpp
 SERVER_BIN = server.exe
 CLIENT_BIN = client.exe
 
+REPLICA_BIN_1 = replica_server1.exe
+REPLICA_SRC_1 = server/replica_server1.cpp
+
+REPLICA_BIN_2 = replica_server2.exe
+REPLICA_SRC_2 = server/replica_server2.cpp
+
 SERVER_SRC = server/server.cpp
 CLIENT_SRC = client/client.cpp
 # Define the client and server source files
 
-all: $(SERVER_BIN) $(CLIENT_BIN)
+all: $(SERVER_BIN) $(CLIENT_BIN) $(REPLICA_BIN_1) $(REPLICA_BIN_2)
 # This is the default target — so running make will build both server and client.
 # Rules to build executable
 
@@ -44,7 +50,11 @@ all: $(SERVER_BIN) $(CLIENT_BIN)
 $(SERVER_BIN): $(SERVER_SRC) $(SRC)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $^ $(LIBS)
 
+$(REPLICA_BIN_1): $(REPLICA_SRC_1) $(SRC)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $^ $(LIBS)
 
+$(REPLICA_BIN_2): $(REPLICA_SRC_2) $(SRC)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $^ $(LIBS)
 # To build the server executable, you need these dependencies:
 # $(SERVER_SRC) → expands to server/server.cpp
 # $(SRC) → expands to src/kvstore.cpp
@@ -59,8 +69,10 @@ $(CLIENT_BIN): $(CLIENT_SRC) $(SRC)
 # Builds only from client/client.cpp
 # This version of client may not yet need the kvstore, but we can include it later.
 
+
 clean:
-	rm -f server.exe client.exe
+	rm -f $(SERVER_BIN) $(CLIENT_BIN) $(REPLICA_BIN_1) $(REPLICA_BIN_2)
+
 
 # This is a custom Makefile target named clean. It doesn't build any code — it performs a cleanup action. Developers often use it to remove temporary or compiled files.
 # rm -f server client

@@ -14,9 +14,16 @@
 #include <string>
 #include <optional>
 
+#include <mutex>
+
 class KeyValueStore {
     std::unordered_map<std::string, std::string> store;
+    std::mutex mtx;  // protects store
+    const std::string filename; // data file
 public:
+    KeyValueStore(const std::string& fname);
+    void load_from_disk();
+    void persist_to_disk();
     void put(const std::string& key, const std::string& value);
     std::optional<std::string> get(const std::string& key);
     bool del(const std::string& key);

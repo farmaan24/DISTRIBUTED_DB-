@@ -1,0 +1,3 @@
+role=staff
+name=farmaan
+poo=boo
