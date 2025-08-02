@@ -1,19 +1,41 @@
-# Ignore compiled files
-*.out
+# Compiled object files
 *.o
+*.obj
+
+# Precompiled Headers
+*.pch
+
+# Compiled binary executables
 *.exe
+*.out
+*.app
 
-# CMake or build folders
-/build/
-/bin/
-/obj/
+# Database / persistence files
+*.db
+*.txt
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Visual Studio Code
+# VS Code metadata
 .vscode/
+
+# Windows system files
+Thumbs.db
+Desktop.ini
+
+# Logs and dumps
+*.log
+*.stackdump
+
+# CMake files (if using CMake)
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+build/
 
 # Backup files
 *~
+*.bak
+*.swp
+
+# Git ignore self
+.gitignore
