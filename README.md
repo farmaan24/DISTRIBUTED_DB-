@@ -34,26 +34,6 @@ Client --> Primary Server --> Replica 1
 
 ---
 
-## 📁 File Structure
-
-db-cpp/
-├── client
-|└──client.cpp
-├── server
-│ └──  primary_server.cpp
-│ └── replica1.cpp
-│ └── replica2.cpp
-├── src/
-│ └── kvstore.hpp / kvstore.cpp
-├── db/
-│ ├── store_db.txt
-│ ├── replica1_db.txt
-│ └── replica2_db.txt
-├── LICENSE
-└── README.md
-
-
----
 
 ## 🧪 Example Commands (from client)
 
